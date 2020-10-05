@@ -1,17 +1,16 @@
 ﻿
 using System;
-
+using LearningClasses;
 namespace CSharpbasics
 {
     class Program
     {
-        // static void Main(string[] args) 
-        // {
-        //    SelectionStatement selectionSatetment = new SelectionStatement();
-        //    selectionSatetment.LearnSwitchCase(); 
-        
+        static void Main() 
+        {
+            var person2 = new Person();
+            var person1 = new Person("d", "html", 20);       
 
-        // }
+        }
     }
 }
 

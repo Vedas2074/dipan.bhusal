@@ -3,11 +3,7 @@ class IterationStatement{
     //PascalCase -> method name, class name
     //camelCase -> variable name 
 
-    static void Main()
-    {
-        IterationStatement iterationStatement = new IterationStatement();
-        iterationStatement.LearnWhileLoops();
-    }
+    
     void LearnForLoops()
     {
         

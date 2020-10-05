@@ -17,11 +17,5 @@ class Array
         numbers2[2, 3] = 879;
         decimal[,] numbers3 = { { 1.2m, 3.6m }, { 22.1m, 1.1m }, { 19.1m, 123.2m } }
     }
-    void LearnJaggedArray()
-    {
-        short[][] numbers = new short[][];
-        numbers[0] = new short[] { 2, 3, 4 };
-        numbers[1] = new short[] { 3, 4 };
-        numbers[2] = new short[] { 3, 4, 5, 8 };
-    }
+    
 }
