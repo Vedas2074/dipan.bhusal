@@ -1,4 +1,4 @@
-class Person
+class PersonProperties
 {
     string name;
     byte age;
