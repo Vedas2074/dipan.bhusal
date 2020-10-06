@@ -19,5 +19,5 @@ namespace LearningClasses
         }
         public string Name { get; set; }
         public string Address { get; set; }
-        public string Age { get; set; }
+        public byte Age { get; set; }
     }
