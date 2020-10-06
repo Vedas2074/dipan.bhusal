@@ -8,8 +8,10 @@ namespace CSharpbasics
         static void Main() 
         {
             var person2 = new Person();
-            var person1 = new Person("d", "html", 20);       
+            var person1 = new Person("d", "Kathmandu", 20);  
+            Console.WriteLine(person1.Address); 
 
+            var s = Calcalutor.Sum<int>(2,3);
         }
     }
 }
