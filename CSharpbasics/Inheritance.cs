@@ -11,24 +11,32 @@ public abstract class Shape
     }
 }
 
-public class Rectangle : Shape
+
+public class Rectangle :Shape, IDiagonalComputable
 {
 
     public Rectangle(double l, double b){
         this.Length = l;
         this.Breadth = b;
     }
+    
      public double Length { get; set; }
      public double Breadth {get; set;}
 
     public override double GetArea() => Length * Breadth;
 
     public override double GetPerimeter() => 2 * (Length + Breadth);
+    public  double GetDiagonalLength() => Math.Sqrt(Length * Length + Breadth * Breadth );
 
     public override void PrintDetails()
     {
         Console.WriteLine($"Length: {Length}");
     }
+}
+
+public interface IDiagonalComputable
+{
+    public  double  GetDiagonalLength();
 }
 public class Square : Rectangle
 {
