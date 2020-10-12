@@ -12,6 +12,11 @@ namespace CSharpbasics
             Console.WriteLine(person1.Address); 
 
             var s = Calcalutor.Sum<int>(2,3);
+
+            Rectangle rectangle = new Rectangle(2.3,4.5);
+            
+            var result = rectangle.GetArea();
+            
         }
     }
 }
