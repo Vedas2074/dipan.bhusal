@@ -29,10 +29,27 @@ namespace EmployeeManagement.Controllers{
         }
         
         [HttpPost]
-        public string Add(Employee employee){
+        public ActionResult Add(Employee employee){
             db.Employees.Add(employee);
             db.SaveChanges();
-            return "Record saved " + employee.FirstName; 
+
+            return RedirectToAction("Index"); 
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var employee = db.Employees.Find(id);
+            return View(employee);
+        }
+        
+        [HttpPost]
+        public ActionResult Edit( Employee employee)
+        {
+            db.Employees.Attach(employee);
+            db.Employees.Update(employee);
+            db.SaveChanges();
+
+            return RedirectToAction("Index"); 
         }
     }
 }
