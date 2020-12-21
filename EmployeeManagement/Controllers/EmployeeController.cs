@@ -41,7 +41,7 @@ namespace EmployeeManagement.Controllers{
             var employee = db.Employees.Find(id);
             return View(employee);
         }
-        
+
         [HttpPost]
         public ActionResult Edit( Employee employee)
         {
@@ -51,5 +51,22 @@ namespace EmployeeManagement.Controllers{
 
             return RedirectToAction("Index"); 
         }
+
+        public ActionResult Delete(int id)
+        {
+            var employee = db.Employees.Find(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Employee employee)
+        {   
+            db.Employees.Attach(employee);
+            db.Employees.Remove(employee);
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        
     }
 }
