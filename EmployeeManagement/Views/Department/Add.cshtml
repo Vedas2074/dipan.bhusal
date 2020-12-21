@@ -1,0 +1,16 @@
+@model Department
+
+
+<form asp-controller="Department" asp-action="Add" method="POST"> 
+  <div class="form-group">
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <input type="text" class="form-control" asp-for="Name" placeholder="Department Name" >
+  </div>
+  <div class="form-group">
+        <span asp-validation-for="Code" class="text-danger"></span>
+
+    <input type="text" class="form-control" asp-for="Code"  placeholder="Department Code" >
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

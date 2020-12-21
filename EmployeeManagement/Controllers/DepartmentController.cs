@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using EmployeeManagement.Models;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace EmployeeManagement.Controllers
@@ -7,30 +8,23 @@ namespace EmployeeManagement.Controllers
     public class DepartmentController : Controller
     {
         public IActionResult Index(){
-            Department item1 = new Department(){
-            ItemId = 1,
-            ItemName = "KitKat",
-            InStock = true,
-            Price = 200.00f,
-            Quantity = 100
-            };
-            Department item2 = new Department(){
-            ItemId = 2,
-            ItemName = "JuJu Dhau",
-            InStock = true,
-            Price = 100.00f,
-            Quantity = 50
-            };
-            Department item3 = new Department(){
-            ItemId = 3,
-            ItemName = "Flour",
-            InStock = false,
-            Price = 150.50f,
-            Quantity = 0
-            };
-            
-            List<Department> items = new List<Department>{item1, item2, item3};
-            return View(items);
+            var departments = Department.GetDepartments();
+            return View(departments);
+        }
+
+        public IActionResult Detail(int id){
+            var departments = Department.GetDepartments();
+            var detail = departments.FirstOrDefault(x => x.Id == id);
+            return View(detail);
+        }
+        public IActionResult Add(){
+            return View();
+        }
+
+        [HttpPost]
+        public string Add(Department department)
+        {
+            return "Added Department: " + department.Name;
         }
     }
 }
