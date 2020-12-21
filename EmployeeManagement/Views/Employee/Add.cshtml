@@ -1,20 +1,26 @@
 @model Employee
 
-<form>
+
+
+
+<form asp-controller="Employee" asp-action="Add" method="POST"> 
   <div class="form-group">
-    <input type="text" class="form-control"   placeholder="Enter First Name">
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+    <input type="text" class="form-control" asp-for="FirstName" placeholder=" First Name" >
   </div>
   <div class="form-group">
-    <input type="text" class="form-control"   placeholder="Enter Last Name">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+
+    <input type="text" class="form-control" asp-for="LastName"  placeholder=" Last Name" >
   </div>
   <div class="form-group">
-    <input type="text" class="form-control"   placeholder="Enter Address">
+    <textarea  class="form-control" asp-for="Address" rows="3" placeholder=" Address" ></textarea>
   </div>
   <div class="form-group">
-    <input type="number" class="form-control"   placeholder="Enter Age">
+    <input type="number" class="form-control" asp-for="Age"   placeholder=" Age" >
   </div>
   <div class="form-group">
-    <input type="number" class="form-control"   placeholder="Enter Salary">
+    <input type="number" class="form-control" asp-for="Salary"  placeholder=" Salary" >
   </div>
 
   <div class="form-check">

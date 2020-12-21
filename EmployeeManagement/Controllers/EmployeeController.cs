@@ -1,34 +1,38 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using EmployeeManagement.Models;
+using EmployeeManagement.Data;
 
 namespace EmployeeManagement.Controllers{
     public class EmployeeController : Controller
     {
+        private readonly EMSContext db;
+        public EmployeeController(EMSContext _db)
+        {
+            db = _db;
+        }
+
         public IActionResult Index()
         {
-            Employee employee1 = new Employee(){
-                Id = 1,
-                FirstName = "Dipan",
-                LastName = "Bhusal",
-                Age = 124, 
-                Salary = 4343,
-                Address = "Patan"
-
-            };
-            Employee employee2 = new Employee(){
-                Id = 2,
-                FirstName = "Ram",
-                LastName = "Bhusal",
-                Age = 24, 
-                Salary = 434399,
-                Address = "Chitwan"
-
-
-            };
-            List<Employee> employees = new List<Employee>(){employee1, employee2};
+            var employees = db.Employees.ToList();
             return View(employees);
             // return View();
+        }
+        public IActionResult Detail(int id){
+            var employee = db.Employees.Find(id);
+            return View(employee);
+        }
+        public IActionResult Add(){
+            return View();
+        }
+        
+        [HttpPost]
+        public string Add(Employee employee){
+            db.Employees.Add(employee);
+            db.SaveChanges();
+            return "Record saved " + employee.FirstName; 
         }
     }
 }
